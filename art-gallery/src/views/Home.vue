@@ -25,17 +25,23 @@
       <div class="section-1">
         <h1>Doris</h1>
       </div>
+      <div class="section-2">
+        <div class="item" v-for="item in images" v-bind:key="item.path" v-bind:style="{backgroundColor: item.color}">
+          <img v-bind:src="item.path"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import Component from 'vue-class-component'
-  import { Vue } from 'vue-property-decorator'
+  import Component from 'vue-class-component';
+  import { Vue } from 'vue-property-decorator';
+  import { IMAGES } from '@/stock/content';
 
   @Component
   export default class Counter extends Vue {
-
+    images = IMAGES;
   }
 </script>
 
@@ -46,13 +52,20 @@
   .wrapper {
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: $menu-width 1fr;
+    padding-left: $menu-width;
+
+    .content {
+      width: 100%;
+    }
   }
 
   .menu {
     border-right: 1px solid $border-color;
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: $menu-width;
 
     .text-box {
       position: absolute;
@@ -70,18 +83,18 @@
         height: 1px;
       }
 
-      h1{
+      h1 {
         font-size: 0.8vw;
         font-weight: 900;
       }
 
-      h4{
+      h4 {
         font-size: 0.5vw;
         font-weight: 300;
       }
 
-      p{
-      font-size: 0.5vw;
+      p {
+        font-size: 0.5vw;
       }
     }
 
@@ -194,6 +207,23 @@
       text-align: center;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .section-2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+
+      img {
+        width: 100%;
+      }
     }
   }
 </style>
