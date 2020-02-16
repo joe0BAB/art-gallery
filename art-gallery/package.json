@@ -51,7 +51,8 @@
       "ecmaVersion": 2020
     },
     "rules": {
-      "indent": "off"
+      "indent": "off",
+      "semi": ["error", "always"]
     }
   },
   "browserslist": [
