@@ -50,7 +50,9 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {}
+    "rules": {
+      "indent": "off"
+    }
   },
   "browserslist": [
     "> 1%",
