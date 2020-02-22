@@ -23,14 +23,42 @@
     </div>
     <div class="content">
       <div class="section-1">
-        <h1>Doris</h1>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[12].path})`}"></div></div>
+        <div class="img-box"><div class="content text" style="background-color: #804F4D">D</div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[7].path})`}"></div></div>
+        <div class="img-box"><div class="content"><div><div class="extra" v-bind:style="{backgroundImage: `url(${images[15].path})`}"></div></div></div></div>
+        <div class="img-box"><div class="content text" style="background-color: #CC443D">O</div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[3].path})`}"></div></div>
+        <div class="img-box"><div class="content"><div><div class="extra" v-bind:style="{backgroundImage: `url(${images[17].path})`}"></div></div></div></div>
+        <div class="img-box"><div class="content"></div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[8].path})`}"></div></div>
+        <div class="img-box"><div class="content text" style="background-color: #FF9E99">R</div></div>
+        <div class="img-box"><div class="content"></div></div>
+        <div class="img-box"><div class="content text" style="background-color: #FF544C">I</div></div>
+        <div class="img-box"><div class="content"><div><div class="extra" v-bind:style="{backgroundImage: `url(${images[16].path})`}"></div></div></div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[5].path})`}"></div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[2].path})`}"></div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[13].path})`}"></div></div>
+        <div class="img-box"><div class="content"></div></div>
+        <div class="img-box"><div class="content"><div><div class="extra" v-bind:style="{backgroundImage: `url(${images[14].path})`}"></div></div></div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[10].path})`}"></div></div>
+        <div class="img-box"><div class="content text" style="background-color: #802B26">S</div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[11].path})`}"></div></div>
+        <div class="img-box"><div class="content"></div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[9].path})`}"></div></div>
+        <div class="img-box"><div class="content" v-bind:style="{backgroundImage: `url(${images[4].path})`}"></div></div>
       </div>
       <div class="section-2">
         <div class="item" v-for="(item, index) in images" v-bind:key="item.path"
              v-bind:style="{backgroundColor: item.color}">
           <div class="inner-wrapper">
             <img v-bind:src="item.path"/>
-            <div class="info-extra">Öl auf Stoff <div class="spacer"></div> | <div class="spacer"></div> Objekt {{index+1}} / {{images.length}}</div>
+            <div class="info-extra">Öl auf Stoff
+              <div class="spacer"></div>
+              |
+              <div class="spacer"></div>
+              Objekt {{index+1}} / {{images.length}}
+            </div>
           </div>
         </div>
       </div>
@@ -197,20 +225,57 @@
   .section-1 {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    h1 {
-      font-size: 80vh;
-      background: url(../stock/picasso-1.jpg) no-repeat center center;
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      line-height: 100vh;
-      text-align: center;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .img-box {
+      position: relative;
+      width: 25%;
+      float: left;
+
+      &:before {
+        content: "";
+        float: left;
+        padding-top: 50%;
+      }
+
+      &.h:before {
+        padding-top: 100%
+      }
+
+      .content {
+        float: left;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-size: cover;
+        background-position: center;
+
+        &.text {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 6vw;
+          color: #fff;
+        }
+
+        & > div{
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+
+        .extra {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 200%;
+          background-size: cover;
+          background-position: center;
+          z-index: 1;
+        }
+      }
     }
   }
 
