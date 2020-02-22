@@ -26,8 +26,12 @@
         <h1>Doris</h1>
       </div>
       <div class="section-2">
-        <div class="item" v-for="item in images" v-bind:key="item.path" v-bind:style="{backgroundColor: item.color}">
-          <img v-bind:src="item.path"/>
+        <div class="item" v-for="(item, index) in images" v-bind:key="item.path"
+             v-bind:style="{backgroundColor: item.color}">
+          <div class="inner-wrapper">
+            <img v-bind:src="item.path"/>
+            <div class="info-extra">Öl auf Stoff <div class="spacer"></div> | <div class="spacer"></div> Objekt {{index+1}} / {{images.length}}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -37,7 +41,7 @@
 <script lang="ts">
   import Component from 'vue-class-component';
   import { Vue } from 'vue-property-decorator';
-  import { IMAGES } from '@/stock/content';
+  import { IMAGES } from '@/assets/content';
 
   @Component
   export default class Counter extends Vue {
@@ -220,9 +224,32 @@
       display: flex;
       align-items: center;
       padding: 40px;
+      position: relative;
+
+      .inner-wrapper {
+        width: 100%;
+        position: relative;
+
+        .info-extra {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: #fff;
+          font-size: 12px;
+          line-height: 24px;
+          transform: translateY(100%);
+
+          div {
+            width: 3px;
+            height: 1px;
+            display: inline-block;
+          }
+        }
+      }
 
       img {
         width: 100%;
+        filter: contrast(0.8) brightness(1.2);
       }
     }
   }
