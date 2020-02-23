@@ -1,22 +1,38 @@
 <template>
   <div class="about-wrapper">
     <div class="main-box">
-      <div class="text-box">
-        <h1>Gallerie Doris Großmann</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-        <div class="spacer"></div>
-        <h1>Kontakt</h1>
-        <p>
-          Doris Großmann
-          <br>
-          000000000
-        </p>
+      <div class="presenter">
+        <div class="show-box">
+          <h1>Atelier</h1>
+        </div>
+        <div class="credits-box">
+          <div>
+            <h2>
+              Künstlerin
+            </h2>
+            <p>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+              labore et dolore magna aliquyam erat, sed diam voluptua.
+            </p>
+          </div>
+          <div>
+            <h2>Kontakt</h2>
+            <p>
+              Doris Großmann
+              <br>
+              000000
+            </p>
+          </div>
+          <div>
+            <h2>Website</h2>
+            <p>
+              Johannes Großmann
+              <br>
+              blub-blub@blub.de
+            </p>
+          </div>
+        </div>
       </div>
-      <img src="../assets/P1060376.jpeg">
       <div class="close" v-on:click="closeAbout">
         <div></div>
       </div>
@@ -59,7 +75,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 3vw 3vw 3vw $menu-width;
+    padding: calc(4.6vw - 1px) $menu-width 0 2 * $menu-width;
     background-color: $color3;
   }
 
@@ -68,50 +84,62 @@
     height: 100%;
   }
 
-  .text-box {
-    padding: 1vh 4vw;
-    max-width: 900px;
+  .presenter {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
 
-    h1 {
-      font-size: 4vh;
+    .show-box {
+      background-image: url(../assets/P1060376.jpeg);
+      background-size: cover;
+      background-position: center;
+      color: $color3;
+      font-size: 14vw;
+      line-height: 9vw;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 1vh 0 2vh 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
     }
 
-    p {
-      font-size: 2.5vh;
-      line-height: 4vh;
-    }
+    .credits-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 3vw;
+      padding: 3vh 0;
 
-    .spacer {
-      width: 100%;
-      height: 8vh;
-    }
-  }
+      h2 {
+        font-size: calc(16px + 0.5vh);
+        line-height: calc(24px + 0.6vh);
+        text-transform: uppercase;
+      }
 
-  img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 45vh;
-    margin: 2vh 0;
+      p {
+        font-size: calc(12px + 0.3vh);
+        line-height: calc(18px + 0.5vh);
+      }
+    }
   }
 
   .close {
-    $c-w: 3vh;
-    $c-s: 0.4vh;
+    $c-w: 2.8vw;
+    $c-s: 0.2vw;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: - $padding-top / 2;
+    right: - $menu-width / 2;
     cursor: pointer;
-    border: $c-s solid #000;
-    border-radius: 50%;
     padding: 0.5vh;
+    transform: translateX(50%) translateY(-50%);
 
     div {
       width: $c-w;
       height: $c-w;
+      transition: all 450ms;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
 
       &:before, &:after {
         position: absolute;
