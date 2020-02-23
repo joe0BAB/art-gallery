@@ -1,34 +1,49 @@
 <template>
-  <div class="menu">
-      <div class="open-action">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="text-box">
+  <div class="menu" v-bind:class="[$store.state.mainColor.toString()]">
+    <div class="open-action" v-bind:class="[$store.state.mainColor.toString()]" v-on:click="toggleAbout">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <router-link v-bind:to="paths.home">
+      <div class="text-box" v-bind:class="[$store.state.mainColor.toString()]">
         <h4>2020</h4>
         <div class="spacer"></div>
         <h1>Doris Großmann</h1>
         <div class="spacer"></div>
         <p>Kunstausstellung Gemälde Gallerie</p>
       </div>
-      <div class="dash"></div>
-      <div class="menu-art">
-        <div class="h-line"></div>
-        <div id="heart"></div>
-        <div id="diamond"></div>
-        <div id="circle"></div>
-      </div>
+    </router-link>
+    <div class="dash" v-bind:class="[$store.state.mainColor.toString()]"></div>
+    <div class="menu-art" v-bind:class="[$store.state.mainColor.toString()]">
+      <div class="h-line"></div>
+      <div id="heart"></div>
+      <div id="diamond"></div>
+      <div id="circle"></div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
+  import { paths } from '@/router';
 
   @Component
-export default class SideBar extends Vue {
+  export default class SideBar extends Vue {
+    paths = paths;
 
-}
+    toggleAbout () {
+      if (this.$router.currentRoute.path === paths.about) {
+        if (window.history.length > 1) {
+          this.$router.back();
+        } else {
+          this.$router.push(paths.home);
+        }
+      } else {
+        this.$router.push(paths.about);
+      }
+    }
+  }
 </script>
 
 <style scoped lang="scss">
@@ -41,10 +56,20 @@ export default class SideBar extends Vue {
     top: 0;
     height: 100vh;
     width: $menu-width;
+    z-index: 100;
+
+    &.default {
+      background-color: #fff;
+    }
+
+    &.color1 {
+      background-color: $color3;
+      border-right: 1px solid #000;
+    }
 
     .text-box {
       position: absolute;
-      top: 75vh;
+      top: 78vh;
       left: 0;
       transform: rotate(-90deg) translateX(0%);
       transform-origin: 0 0;
@@ -52,18 +77,19 @@ export default class SideBar extends Vue {
       height: $menu-width;
       display: flex;
       align-items: center;
+      color: #000;
 
       .spacer {
-        width: 2.5vw;
+        width: 4vh;
         height: 1px;
       }
 
       h1 {
-        font-size: 1.4vw;
+        font-size: 2vh;
         font-weight: 900;
       }
 
-      $sub-font: 0.7vw;
+      $sub-font: 1.3vh;
 
       h4 {
         font-size: $sub-font;
@@ -80,19 +106,23 @@ export default class SideBar extends Vue {
       position: absolute;
       left: 0;
       bottom: 0;
-      padding: 1.6vw 1vw;
+      padding: 1.6vh 1vw;
       width: calc(100% - 2 * 1vw);
       display: flex;
       flex-direction: column;
-      height: 9vw;
+      height: 17vh;
       align-items: center;
       justify-content: space-around;
 
       .h-line {
         height: 1px;
         width: 70%;
-        margin-bottom: 3vw;
+        margin-bottom: 2vh;
         background-color: $border-color;
+      }
+
+      &.color1 .h-line {
+        background-color: #000;
       }
 
       $h-w: 1vw;
@@ -161,6 +191,11 @@ export default class SideBar extends Vue {
     padding: 1.6vw 1.6vw;
     border-bottom: 1px solid $border-color;
     width: 100%;
+    cursor: pointer;
+
+    &.color1 {
+      border-bottom: 1px solid #000;
+    }
 
     div {
       background-color: black;
