@@ -49,6 +49,33 @@
 <style scoped lang="scss">
   @import "../scss/constants";
 
+  %-from-enum {
+    &.color1 {
+      background-color: $color1;
+      border-color: #000;
+    }
+
+    &.color2 {
+      background-color: $color2;
+      border-color: #000;
+    }
+
+    &.color3 {
+      background-color: $color3;
+      border-color: #000;
+    }
+
+    &.color4 {
+      background-color: $color4;
+      border-color: #000;
+    }
+
+    &.color5 {
+      background-color: $color5;
+      border-color: #000;
+    }
+  }
+
   .menu {
     border-right: 1px solid $border-color;
     position: fixed;
@@ -62,10 +89,7 @@
       background-color: #fff;
     }
 
-    &.color1 {
-      background-color: $color3;
-      border-right: 1px solid #000;
-    }
+    @extend %-from-enum;
 
     .text-box {
       position: absolute;
@@ -121,8 +145,10 @@
         background-color: $border-color;
       }
 
-      &.color1 .h-line {
-        background-color: #000;
+      &.color1, &.color2, &.color3, &.color4, &.color5 {
+        .h-line {
+          background-color: #000;
+        }
       }
 
       $h-w: 1vw;
@@ -193,7 +219,7 @@
     width: 100%;
     cursor: pointer;
 
-    &.color1 {
+    &.color1, &.color2, &.color3, &.color4, &.color5 {
       border-bottom: 1px solid #000;
     }
 

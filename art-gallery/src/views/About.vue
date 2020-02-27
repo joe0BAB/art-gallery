@@ -49,7 +49,7 @@
   @Component
   export default class About extends Vue {
     mounted () {
-      this.$store.commit('setMainColor', MainColor.COLOR_1);
+      this.$store.commit('setMainColor', MainColor.COLOR_3);
     }
 
     destroyed () {
@@ -68,6 +68,7 @@
 
 <style scoped lang="scss">
   @import "src/scss/constants";
+  @import "src/scss/symbols";
 
   .about-wrapper {
     position: fixed;
@@ -123,40 +124,6 @@
   }
 
   .close {
-    $c-w: 2.8vw;
-    $c-s: 0.2vw;
-    position: absolute;
-    top: - $padding-top / 2;
-    right: - $menu-width / 2;
-    cursor: pointer;
-    padding: 0.5vh;
-    transform: translateX(50%) translateY(-50%);
-
-    div {
-      width: $c-w;
-      height: $c-w;
-      transition: all 450ms;
-
-      &:hover {
-        transform: rotate(180deg);
-      }
-
-      &:before, &:after {
-        position: absolute;
-        left: 50%;
-        content: ' ';
-        width: $c-s;
-        height: $c-w;
-        background-color: #000;
-      }
-
-      &:before {
-        transform: translateX(-50%) rotate(-45deg);
-      }
-
-      &:after {
-        transform: translateX(-50%) rotate(45deg);
-      }
-    }
+    @extend %-close;
   }
 </style>

@@ -97,7 +97,9 @@
           <div class="item" v-for="(item, index) in images" v-bind:key="item.path"
                v-bind:style="{backgroundColor: item.color}">
             <div class="inner-wrapper" v-bind:class="[item.orientation]">
-              <img v-bind:src="item.path" v-bind:class="[item.orientation]"/>
+              <router-link v-bind:to="`/image/${index+1}`">
+                <img v-bind:src="item.path" v-bind:class="[item.orientation]"/>
+              </router-link>
               <div class="info-extra">Öl auf Stoff
                 <div class="spacer"></div>
                 |
