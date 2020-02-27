@@ -57,7 +57,7 @@
     }
 
     closeAbout () {
-      if (window.history.length > 1) {
+      if (window.history.length > 2) {
         this.$router.back();
       } else {
         this.$router.push(paths.home);

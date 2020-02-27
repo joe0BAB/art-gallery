@@ -34,7 +34,7 @@
 
     toggleAbout () {
       if (this.$router.currentRoute.path === paths.about) {
-        if (window.history.length > 1) {
+        if (window.history.length > 2) {
           this.$router.back();
         } else {
           this.$router.push(paths.home);

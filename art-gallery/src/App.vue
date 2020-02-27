@@ -96,8 +96,8 @@
         <div class="section-2">
           <div class="item" v-for="(item, index) in images" v-bind:key="item.path"
                v-bind:style="{backgroundColor: item.color}">
-            <div class="inner-wrapper">
-              <img v-bind:src="item.path"/>
+            <div class="inner-wrapper" v-bind:class="[item.orientation]">
+              <img v-bind:src="item.path" v-bind:class="[item.orientation]"/>
               <div class="info-extra">Öl auf Stoff
                 <div class="spacer"></div>
                 |
@@ -266,18 +266,26 @@
   .section-2 {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
 
     .item {
       width: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
       padding: 40px;
       position: relative;
 
       .inner-wrapper {
-        width: 100%;
         position: relative;
+
+        &.horizontal {
+          height: 80vh;
+        }
+
+        &.vertical {
+          width: 100%;
+        }
 
         .info-extra {
           position: absolute;
@@ -297,7 +305,14 @@
       }
 
       img {
-        width: 100%;
+        &.vertical {
+          width: 100%;
+        }
+
+        &.horizontal {
+          height: 100%;
+        }
+
         filter: contrast(0.8) brightness(1.2);
       }
     }
