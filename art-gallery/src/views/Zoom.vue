@@ -2,7 +2,7 @@
   <div class="zoom-wrapper" v-bind:style="{backgroundColor: image.color}">
     <div class="main-box">
       <div class="presenter">
-        <img v-bind:src="image.path" v-bind:class="image.orientation"/>
+        <img v-bind:src="image.path" />
       </div>
       <div class="close" v-on:click="close">
         <div></div>
@@ -78,13 +78,10 @@
     height: 100%;
 
     img {
-      &.vertical {
-        width: 100%;
-      }
-
-      &.horizontal {
-        height: 100%;
-      }
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
     }
   }
 
