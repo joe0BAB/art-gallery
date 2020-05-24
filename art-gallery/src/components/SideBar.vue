@@ -109,7 +109,7 @@
       }
 
       h1 {
-        font-size: 2vh;
+        font-size: calc(1.8vh + 6px);
         font-weight: 900;
       }
 

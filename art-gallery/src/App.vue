@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <side-bar></side-bar>
+      <side-bar v-if="innerWidth > 800"></side-bar>
+      <top-menu v-else></top-menu>
       <div class="content">
         <div class="section-1">
           <div class="img-box">
@@ -100,10 +101,7 @@
               <router-link v-bind:to="`/image/${index+1}`">
                 <img v-bind:src="item.path" v-bind:class="[item.orientation]"/>
               </router-link>
-              <div class="info-extra">Öl auf Stoff
-                <div class="spacer"></div>
-                |
-                <div class="spacer"></div>
+              <div class="info-extra">
                 Objekt {{index+1}} / {{images.length}}
               </div>
             </div>
@@ -120,10 +118,25 @@
   import { Vue } from 'vue-property-decorator';
   import { IMAGES } from '@/assets/content';
   import SideBar from '@/components/SideBar.vue';
+  import TopMenu from '@/components/TopMenu.vue';
 
-  @Component({ components: { SideBar } })
+  @Component({ components: { TopMenu, SideBar } })
   export default class App extends Vue {
     images = IMAGES;
+    innerWidth = 0;
+
+    mounted () {
+      this.innerWidth = window.innerWidth;
+      window.addEventListener('resize', this.onResize);
+    }
+
+    beforeDestroy () {
+      window.removeEventListener('resize', this.onResize);
+    }
+
+    onResize () {
+      this.innerWidth = window.innerWidth;
+    }
   }
 </script>
 
@@ -199,6 +212,11 @@
     height: 100%;
     padding-left: $menu-width;
 
+    @media all and (max-width: 800px) {
+      padding-top: calc(6vh + 10px);
+      padding-left: 0;
+    }
+
     .content {
       width: 100%;
     }
@@ -270,6 +288,10 @@
     display: grid;
     grid-template-columns: 50% 50%;
 
+    @media all and (max-width: 700px) {
+      grid-template-columns: 100%;
+    }
+
     .item {
       width: 100%;
       display: flex;
@@ -277,6 +299,10 @@
       justify-content: center;
       padding: 40px;
       position: relative;
+
+      @media all and (max-width: 1000px) and (min-width: 701px) {
+        padding: 20px;
+      }
 
       .inner-wrapper {
         position: relative;
@@ -294,15 +320,9 @@
           bottom: 0;
           right: 0;
           color: #fff;
-          font-size: 12px;
+          font-size: calc(0.5vw + 8px);
           line-height: 24px;
           transform: translateY(100%);
-
-          div {
-            width: 3px;
-            height: 1px;
-            display: inline-block;
-          }
         }
       }
 

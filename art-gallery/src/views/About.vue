@@ -11,25 +11,18 @@
               Künstlerin
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-              labore et dolore magna aliquyam erat, sed diam voluptua.
-            </p>
-          </div>
-          <div>
-            <h2>Kontakt</h2>
-            <p>
               Doris Großmann
               <br>
-              000000
+              grossmann_doris(at)t-online.de
             </p>
           </div>
           <div>
             <h2>Website</h2>
             <p>
               Johannes Großmann
-              <br>
-              blub-blub@blub.de
             </p>
+          </div>
+          <div>
           </div>
         </div>
       </div>
@@ -77,6 +70,11 @@
     width: 100%;
     height: 100%;
     padding: calc(4.6vw - 1px) $menu-width 0 2 * $menu-width;
+
+    @media all and (max-width: 799px) {
+      padding-top: $menu-height-double;
+      padding-left: $menu-width;
+    }
     background-color: $color3;
   }
 
@@ -125,5 +123,9 @@
 
   .close {
     @extend %-close;
+
+    @media all and (max-width: 799px) {
+      display: none;
+    }
   }
 </style>

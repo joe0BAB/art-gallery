@@ -2,7 +2,7 @@
   <div class="zoom-wrapper" v-bind:style="{backgroundColor: image.color}">
     <div class="main-box">
       <div class="presenter">
-        <img v-bind:src="image.path" />
+        <img v-bind:src="image.path"/>
       </div>
       <div class="close" v-on:click="close">
         <div></div>
@@ -63,6 +63,12 @@
     width: 100%;
     height: 100%;
     padding: calc(4.6vw - 1px) $menu-width calc(4.6vw - 1px) 2 * $menu-width;
+
+    @media all and (max-width: 799px) {
+      padding-top: $menu-height-double;
+      padding-left: $menu-width;
+    }
+
     background-color: $color3;
   }
 
@@ -87,5 +93,9 @@
 
   .close {
     @extend %-close;
+
+    @media all and (max-width: 799px) {
+      display: none;
+    }
   }
 </style>

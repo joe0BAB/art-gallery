@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import Zoom from '@/views/Zoom.vue';
+import store from '@/store';
 
 Vue.use(VueRouter);
 
@@ -36,4 +37,22 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  if (!store.state.fromRoute.path) {
+    store.commit('setFromRoute', to);
+  } else {
+    store.commit('setFromRoute', from);
+  }
+
+  next();
+});
+
 export default router;
+
+export const closePage = function (fallback: string = paths.home) {
+  if (store.state.fromRoute.path !== window.location.pathname) {
+    router.push(store.state.fromRoute.path);
+  } else {
+    router.push(fallback);
+  }
+};

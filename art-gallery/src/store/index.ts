@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { Route } from 'vue-router';
 
 Vue.use(Vuex);
 
@@ -30,11 +31,15 @@ export function fromHex (color: string) {
 
 export default new Vuex.Store({
   state: {
-    mainColor: MainColor.DEFAULT
+    mainColor: MainColor.DEFAULT,
+    fromRoute: {} as Route
   },
   mutations: {
     setMainColor (state, color: MainColor) {
       state.mainColor = color;
+    },
+    setFromRoute (state, data: Route) {
+      state.fromRoute = data;
     }
   },
   actions: {},
