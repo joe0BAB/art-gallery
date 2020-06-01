@@ -6,31 +6,31 @@
       <div class="content">
         <div class="section-1">
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[12].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[8],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
-            <div class="content text" style="background-color: #804F4D">D</div>
+            <div class="content text" style="background-color: #804F4D"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[7].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[9],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
             <div class="content">
               <div>
-                <div class="extra" v-bind:style="{backgroundImage: `url(${images[15].path})`}"></div>
+                <div class="extra" v-bind:class="imageClass(hqImages[3],QUALITY.w300)"></div>
               </div>
             </div>
           </div>
           <div class="img-box">
-            <div class="content text" style="background-color: #CC443D">O</div>
+            <div class="content text" style="background-color: #CC443D"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[3].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[11],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
             <div class="content">
               <div>
-                <div class="extra" v-bind:style="{backgroundImage: `url(${images[17].path})`}"></div>
+                <div class="extra" v-bind:class="imageClass(hqImages[2],QUALITY.w300)"></div>
               </div>
             </div>
           </div>
@@ -38,32 +38,32 @@
             <div class="content"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[8].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[12],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
-            <div class="content text" style="background-color: #FF9E99">R</div>
+            <div class="content text" style="background-color: #FF9E99"></div>
           </div>
           <div class="img-box">
             <div class="content"></div>
           </div>
           <div class="img-box">
-            <div class="content text" style="background-color: #FF544C">I</div>
+            <div class="content text" style="background-color: #FF544C"></div>
           </div>
           <div class="img-box">
             <div class="content">
               <div>
-                <div class="extra" v-bind:style="{backgroundImage: `url(${images[16].path})`}"></div>
+                <div class="extra" v-bind:class="imageClass(hqImages[5],QUALITY.w300)"></div>
               </div>
             </div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[5].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[13],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[2].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[14],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[13].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[15],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
             <div class="content"></div>
@@ -71,38 +71,43 @@
           <div class="img-box">
             <div class="content">
               <div>
-                <div class="extra" v-bind:style="{backgroundImage: `url(${images[14].path})`}"></div>
+                <div class="extra" v-bind:class="imageClass(hqImages[31],QUALITY.w300)"></div>
               </div>
             </div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[10].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[16],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
-            <div class="content text" style="background-color: #802B26">S</div>
+            <div class="content text" style="background-color: #802B26"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[11].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[17],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
             <div class="content"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[9].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[18],QUALITY.w300)"></div>
           </div>
           <div class="img-box">
-            <div class="content" v-bind:style="{backgroundImage: `url(${images[4].path})`}"></div>
+            <div class="content" v-bind:class="imageClass(hqImages[19],QUALITY.w300)"></div>
           </div>
         </div>
         <div class="section-2">
-          <div class="item" v-for="(item, index) in images" v-bind:key="item.path"
+          <div class="item" v-for="(item, index) in rankedImages" v-bind:key="item.name"
                v-bind:style="{backgroundColor: item.color}">
             <div class="inner-wrapper" v-bind:class="[item.orientation]">
-              <router-link v-bind:to="`/image/${index+1}`">
-                <img v-bind:src="item.path" v-bind:class="[item.orientation]"/>
+              <router-link v-bind:to="`/image/${item.name}`">
+                <img v-if="innerWidth < 300" v-bind:src="imagePath(item.name, QUALITY.w300)" v-bind:class="[item.orientation]"/>
+                <img v-else-if="innerWidth < 500" v-bind:src="imagePath(item.name, QUALITY.w500)" v-bind:class="[item.orientation]"/>
+                <img v-else-if="innerWidth <= 700" v-bind:src="imagePath(item.name, QUALITY.w750)" v-bind:class="[item.orientation]"/>
+                <img v-else-if="innerWidth < 1000" v-bind:src="imagePath(item.name, QUALITY.w500)" v-bind:class="[item.orientation]"/>
+                <img v-else-if="innerWidth < 1500" v-bind:src="imagePath(item.name, QUALITY.w750)" v-bind:class="[item.orientation]"/>
+                <img v-else v-bind:src="imagePath(item.name, QUALITY.w1000)" v-bind:class="[item.orientation]"/>
               </router-link>
               <div class="info-extra">
-                Objekt {{index+1}} / {{images.length}}
+                Objekt {{index+1}} / {{rankedImages.length}}
               </div>
             </div>
           </div>
@@ -116,17 +121,25 @@
 <script lang="ts">
   import Component from 'vue-class-component';
   import { Vue } from 'vue-property-decorator';
-  import { IMAGES } from '@/assets/content';
+  import { HQ_IMAGES, imageClass, imagePath, IMAGES, QUALITY, rankedImages } from '@/assets/content';
   import SideBar from '@/components/SideBar.vue';
   import TopMenu from '@/components/TopMenu.vue';
 
   @Component({ components: { TopMenu, SideBar } })
   export default class App extends Vue {
     images = IMAGES;
+    hqImages = HQ_IMAGES;
+    imageClass = imageClass;
+    imagePath = imagePath;
+    QUALITY = QUALITY;
     innerWidth = 0;
 
+    get rankedImages () {
+      return rankedImages();
+    }
+
     mounted () {
-      this.innerWidth = window.innerWidth;
+      this.onResize();
       window.addEventListener('resize', this.onResize);
     }
 
@@ -136,6 +149,7 @@
 
     onResize () {
       this.innerWidth = window.innerWidth;
+      this.$store.commit('updateInnerWidth', this.innerWidth);
     }
   }
 </script>
@@ -202,6 +216,8 @@
     height: 100%;
     font-family: Archivo;
   }
+
+  @import "src/scss/images";
 </style>
 
 <style scoped lang="scss">
@@ -307,11 +323,11 @@
       .inner-wrapper {
         position: relative;
 
-        &.horizontal {
+        &.vertical {
           height: 80vh;
         }
 
-        &.vertical {
+        &.horizontal {
           width: 100%;
         }
 
@@ -327,11 +343,11 @@
       }
 
       img {
-        &.vertical {
+        &.horizontal {
           width: 100%;
         }
 
-        &.horizontal {
+        &.vertical {
           height: 100%;
         }
 

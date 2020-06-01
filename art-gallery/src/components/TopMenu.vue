@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import { closePage, paths } from '@/router';
+  import { paths } from '@/router';
 
   @Component
   export default class SideBar extends Vue {
@@ -94,8 +94,8 @@
     grid-template-columns: 1fr;
     grid-row-gap: 3px;
     grid-auto-rows: 2px;
-    padding: 0 1.6vw;
-    width: calc(6vw + 5px);
+    padding: 0 2.6vw;
+    width: calc(8vw + 5px);
     cursor: pointer;
     position: absolute;
     left: 0;
@@ -113,6 +113,6 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    margin-right: 1.2vw;
+    margin-right: 2.2vw;
   }
 </style>
