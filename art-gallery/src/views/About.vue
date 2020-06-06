@@ -135,7 +135,7 @@
     grid-template-columns: 1fr;
 
     .show-box {
-      background-image: url(../assets/P1060376.jpeg);
+      background-image: url(../assets/hq/studio.jpeg);
       background-size: cover;
       background-position: center;
       color: $color3;
@@ -147,6 +147,22 @@
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
+
+      @media screen and (max-width: 1000px) {
+        background-image: url(../assets/w1000/studio.jpeg);
+      }
+
+      @media screen and (max-width: 750px) {
+        background-image: url(../assets/w750/studio.jpeg);
+      }
+
+      @media screen and (max-width: 500px) {
+        background-image: url(../assets/w500/studio.jpeg);
+      }
+
+      @media screen and (max-width: 300px) {
+        background-image: url(../assets/w300/studio.jpeg);
+      }
     }
 
     .credits-box {
