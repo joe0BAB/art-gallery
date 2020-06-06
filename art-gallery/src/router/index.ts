@@ -44,6 +44,10 @@ router.beforeEach((to, from, next) => {
     store.commit('setFromRoute', from);
   }
 
+  if (from.path === paths.home) {
+    store.commit('updateScrollHomeY', window.scrollY);
+  }
+
   next();
 });
 

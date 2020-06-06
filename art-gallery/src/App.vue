@@ -4,139 +4,21 @@
       <side-bar v-if="innerWidth > 800"></side-bar>
       <top-menu v-else></top-menu>
       <div class="content">
-        <div class="section-1">
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[8],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content text" style="background-color: #804F4D"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[9],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content">
-              <div>
-                <div class="extra" v-bind:class="imageClass(hqImages[3],QUALITY.w300)"></div>
-              </div>
-            </div>
-          </div>
-          <div class="img-box">
-            <div class="content text" style="background-color: #CC443D"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[11],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content">
-              <div>
-                <div class="extra" v-bind:class="imageClass(hqImages[2],QUALITY.w300)"></div>
-              </div>
-            </div>
-          </div>
-          <div class="img-box">
-            <div class="content"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[12],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content text" style="background-color: #FF9E99"></div>
-          </div>
-          <div class="img-box">
-            <div class="content"></div>
-          </div>
-          <div class="img-box">
-            <div class="content text" style="background-color: #FF544C"></div>
-          </div>
-          <div class="img-box">
-            <div class="content">
-              <div>
-                <div class="extra" v-bind:class="imageClass(hqImages[5],QUALITY.w300)"></div>
-              </div>
-            </div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[13],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[14],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[15],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content"></div>
-          </div>
-          <div class="img-box">
-            <div class="content">
-              <div>
-                <div class="extra" v-bind:class="imageClass(hqImages[31],QUALITY.w300)"></div>
-              </div>
-            </div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[16],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content text" style="background-color: #802B26"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[17],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[18],QUALITY.w300)"></div>
-          </div>
-          <div class="img-box">
-            <div class="content" v-bind:class="imageClass(hqImages[19],QUALITY.w300)"></div>
-          </div>
-        </div>
-        <div class="section-2">
-          <div class="item" v-for="(item, index) in rankedImages" v-bind:key="item.name"
-               v-bind:style="{backgroundColor: item.color}">
-            <div class="inner-wrapper" v-bind:class="[item.orientation]">
-              <router-link v-bind:to="`/image/${item.name}`">
-                <img v-if="innerWidth < 300" v-bind:src="imagePath(item.name, QUALITY.w300)" v-bind:class="[item.orientation]"/>
-                <img v-else-if="innerWidth < 500" v-bind:src="imagePath(item.name, QUALITY.w500)" v-bind:class="[item.orientation]"/>
-                <img v-else-if="innerWidth <= 700" v-bind:src="imagePath(item.name, QUALITY.w750)" v-bind:class="[item.orientation]"/>
-                <img v-else-if="innerWidth < 1000" v-bind:src="imagePath(item.name, QUALITY.w500)" v-bind:class="[item.orientation]"/>
-                <img v-else-if="innerWidth < 1500" v-bind:src="imagePath(item.name, QUALITY.w750)" v-bind:class="[item.orientation]"/>
-                <img v-else v-bind:src="imagePath(item.name, QUALITY.w1000)" v-bind:class="[item.orientation]"/>
-              </router-link>
-              <div class="info-extra">
-                Objekt {{index+1}} / {{rankedImages.length}}
-              </div>
-            </div>
-          </div>
-        </div>
+        <router-view/>
       </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
 <script lang="ts">
   import Component from 'vue-class-component';
   import { Vue } from 'vue-property-decorator';
-  import { HQ_IMAGES, imageClass, imagePath, IMAGES, QUALITY, rankedImages } from '@/assets/content';
   import SideBar from '@/components/SideBar.vue';
   import TopMenu from '@/components/TopMenu.vue';
 
   @Component({ components: { TopMenu, SideBar } })
   export default class App extends Vue {
-    images = IMAGES;
-    hqImages = HQ_IMAGES;
-    imageClass = imageClass;
-    imagePath = imagePath;
-    QUALITY = QUALITY;
     innerWidth = 0;
-
-    get rankedImages () {
-      return rankedImages();
-    }
 
     mounted () {
       this.onResize();
@@ -235,124 +117,6 @@
 
     .content {
       width: 100%;
-    }
-  }
-
-  .section-1 {
-    width: 100%;
-    height: 100%;
-
-    .img-box {
-      position: relative;
-      width: 25%;
-      float: left;
-
-      &:before {
-        content: "";
-        float: left;
-        padding-top: 50%;
-      }
-
-      &.h:before {
-        padding-top: 100%
-      }
-
-      .content {
-        float: left;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-size: cover;
-        background-position: center;
-
-        &:not(.text) {
-          filter: contrast(0.8) brightness(1.2);
-        }
-
-        &.text {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 6vw;
-          color: #fff;
-        }
-
-        & > div {
-          width: 100%;
-          height: 100%;
-          position: relative;
-        }
-
-        .extra {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 200%;
-          background-size: cover;
-          background-position: center;
-          z-index: 1;
-        }
-      }
-    }
-  }
-
-  .section-2 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-
-    @media all and (max-width: 700px) {
-      grid-template-columns: 100%;
-    }
-
-    .item {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      position: relative;
-
-      @media all and (max-width: 1000px) and (min-width: 701px) {
-        padding: 20px;
-      }
-
-      .inner-wrapper {
-        position: relative;
-
-        &.vertical {
-          height: 80vh;
-        }
-
-        &.horizontal {
-          width: 100%;
-        }
-
-        .info-extra {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          color: #fff;
-          font-size: calc(0.5vw + 8px);
-          line-height: 24px;
-          transform: translateY(100%);
-        }
-      }
-
-      img {
-        &.horizontal {
-          width: 100%;
-        }
-
-        &.vertical {
-          height: 100%;
-        }
-
-        filter: contrast(0.8) brightness(1.2);
-      }
     }
   }
 </style>

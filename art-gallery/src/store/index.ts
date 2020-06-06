@@ -49,7 +49,8 @@ export default new Vuex.Store({
   state: {
     mainColor: MainColor.DEFAULT,
     fromRoute: {} as Route,
-    innerWidth: window.innerWidth
+    innerWidth: window.innerWidth,
+    scrollHomeY: 0
   },
   mutations: {
     setMainColor (state, color: MainColor) {
@@ -60,6 +61,9 @@ export default new Vuex.Store({
     },
     updateInnerWidth (state, data: number) {
       state.innerWidth = data;
+    },
+    updateScrollHomeY (state, data: number) {
+      state.scrollHomeY = data;
     }
   },
   actions: {},
