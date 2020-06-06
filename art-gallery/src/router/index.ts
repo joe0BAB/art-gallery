@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 
 export const paths = {
   about: '/about',
-  zoom: '/image/:id',
+  zoom: '/image/:name',
   home: '/'
 };
 

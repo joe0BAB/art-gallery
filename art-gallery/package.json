@@ -56,7 +56,8 @@
       "semi": [
         "error",
         "always"
-      ]
+      ],
+      "quote-props": "off"
     }
   },
   "browserslist": [
