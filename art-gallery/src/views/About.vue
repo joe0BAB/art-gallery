@@ -1,26 +1,13 @@
 <template>
   <div class="about-wrapper">
     <div class="main-box">
+      <div class="deco-line"></div>
       <div class="presenter">
         <div class="show-box">
           <h1>Atelier</h1>
         </div>
         <div class="credits-box">
-          <div>
-            <h2>
-              Kurzvita
-            </h2>
-            <p>
-              Doris Großmann
-              <br>
-              1957 geboren in Krefeld
-              <br>
-              Architektin, Studium in Kaiserslautern und Aachen
-              <br>
-              seit 2005 künstlerisch tätig
-            </p>
-          </div>
-          <div>
+          <div class="dominant">
             <h2>Ausstellungen (Auswahl)</h2>
             <div class="history-grid">
               <div>2018</div>
@@ -44,6 +31,21 @@
               <div></div>
               <p>Galerie, Maria Weimann, Rosenheim (E)</p>
             </div>
+            <p>(E): Einzelausstellung</p>
+          </div>
+          <div>
+            <h2>
+              Kurzvita
+            </h2>
+            <p>
+              Doris Großmann
+              <br>
+              1957 geboren in Krefeld,
+              <br>
+              Architektin, Studium in Kaiserslautern und Aachen,
+              <br>
+              seit 2005 künstlerisch tätig
+            </p>
           </div>
           <div>
             <h2>Kontakt</h2>
@@ -79,6 +81,7 @@
   export default class About extends Vue {
     mounted () {
       this.$store.commit('setMainColor', MainColor.COLOR_3);
+      window.scrollTo(0, 0);
     }
 
     destroyed () {
@@ -100,15 +103,11 @@
   @import "src/scss/symbols";
 
   .about-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    padding: calc(4.6vw - 1px) $menu-width 0 2 * $menu-width;
+    padding: calc(4.6vw - 1px) $menu-width;
 
     @media all and (max-width: 799px) {
-      padding-top: $menu-height-double;
+      padding-top: $menu-height;
       padding-left: $menu-width;
     }
     background-color: $color3;
@@ -116,20 +115,32 @@
 
   .main-box {
     position: relative;
-    height: 100%;
+
+    .deco-line {
+      width: 100%;
+      height: calc(4.6vw - 1px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: $color3;
+
+      @media all and (max-width: 799px) {
+        display: none;
+      }
+    }
   }
 
   .presenter {
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr 1fr;
 
     .show-box {
       background-image: url(../assets/P1060376.jpeg);
       background-size: cover;
       background-position: center;
       color: $color3;
+      height: 70vh;
+      min-height: 300px;
       font-size: 14vw;
       line-height: 9vw;
       text-transform: uppercase;
@@ -142,7 +153,17 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-column-gap: 3vw;
-      padding: 3vh 0;
+      padding: 3vh 0 0 0;
+
+      @media all and (max-width: 799px) {
+        grid-template-columns: 1fr 1fr;
+
+        .dominant {
+          padding-top: 20px;
+          grid-column: 1 / span 2;
+          grid-row: 2;
+        }
+      }
 
       h2 {
         font-size: calc(16px + 0.5vh);
@@ -157,7 +178,14 @@
 
       .history-grid {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: auto 1fr;
+        grid-column-gap: calc(2vw + 4px);
+
+        div {
+          font-size: calc(12px + 0.3vh);
+          line-height: calc(18px + 0.5vh);
+          letter-spacing: 1px;
+        }
       }
 
       .spacer {
@@ -169,6 +197,9 @@
 
   .close {
     @extend %-close;
+    position: fixed;
+    top: $padding-top / 2;
+    right: $menu-width / 2;
 
     @media all and (max-width: 799px) {
       display: none;
