@@ -8,15 +8,51 @@
         <div class="credits-box">
           <div>
             <h2>
-              Künstlerin
+              Kurzvita
             </h2>
+            <p>
+              Doris Großmann
+              <br>
+              1957 geboren in Krefeld
+              <br>
+              Architektin, Studium in Kaiserslautern und Aachen
+              <br>
+              seit 2005 künstlerisch tätig
+            </p>
+          </div>
+          <div>
+            <h2>Ausstellungen (Auswahl)</h2>
+            <div class="history-grid">
+              <div>2018</div>
+              <p>Düsseldorf Kunstpunkte</p>
+              <div></div>
+              <p>Galerie Holzwerkstatt Wiehn, Kaiserslautern (E)</p>
+              <div>2017</div>
+              <p>Austellungsraum bei DDJ, Krefeld (E)</p>
+              <div></div>
+              <p>Galerie im Schloss Klippenstein, Radeberg</p>
+              <div>2016</div>
+              <p>Galerie in der Lanker Weinschänke, Lank</p>
+              <div></div>
+              <p>Galerie Blauer Ezel, Aachen</p>
+              <div>2015</div>
+              <p>Arbeitsplatz Kunst, Meerbusch</p>
+              <div></div>
+              <p>Foyer Rathaus, Neuss</p>
+              <div>2013</div>
+              <p>Galerie am Markt, Neubeuern</p>
+              <div></div>
+              <p>Galerie, Maria Weimann, Rosenheim (E)</p>
+            </div>
+          </div>
+          <div>
+            <h2>Kontakt</h2>
             <p>
               Doris Großmann
               <br>
               grossmann_doris(at)t-online.de
             </p>
-          </div>
-          <div>
+            <div class="spacer"></div>
             <h2>Website</h2>
             <p>
               Johannes Großmann
@@ -117,6 +153,16 @@
       p {
         font-size: calc(12px + 0.3vh);
         line-height: calc(18px + 0.5vh);
+      }
+
+      .history-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+      }
+
+      .spacer {
+        width: 100%;
+        height: calc(3vh + 20px);
       }
     }
   }
