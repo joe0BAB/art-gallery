@@ -94,8 +94,8 @@
     grid-template-columns: 1fr;
     grid-row-gap: 3px;
     grid-auto-rows: 2px;
-    padding: 0 2.6vw;
-    width: calc(8vw + 5px);
+    padding: 0 4.6vw;
+    width: calc(12vw + 7px);
     cursor: pointer;
     position: absolute;
     left: 0;
@@ -113,6 +113,6 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    margin-right: 2.2vw;
+    margin-right: 4vw;
   }
 </style>
