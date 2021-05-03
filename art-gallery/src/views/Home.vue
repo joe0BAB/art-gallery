@@ -1,115 +1,6 @@
 <template>
   <div>
-    <div class="section-1">
-      <div class="img-box">
-        <div class="content" v-bind:class="imageClass(hqImages[8],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box">
-        <div class="content text" style="background-color: #804F4D">K</div>
-      </div>
-      <div class="img-box">
-        <div class="content" v-bind:class="imageClass(hqImages[9],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box">
-        <div class="content">
-          <div>
-            <div class="extra" v-bind:class="imageClass(hqImages[3],QUALITY.w300)"></div>
-          </div>
-        </div>
-      </div>
-      <div class="img-box plus">
-        <div class="content text" style="background-color: #FF9E99"></div>
-      </div>
-      <div class="img-box">
-        <div class="content text" style="background-color: #CC443D">U</div>
-      </div>
-      <div class="img-box">
-        <div class="content" v-bind:class="imageClass(hqImages[42],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box">
-        <div class="content">
-          <div>
-            <div class="extra" v-bind:class="imageClass(hqImages[2],QUALITY.w300)"></div>
-          </div>
-        </div>
-      </div>
-      <div class="img-box">
-        <div class="content"></div>
-      </div>
-      <div class="img-box plus">
-        <div class="content" v-bind:class="imageClass(hqImages[44],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box">
-        <div class="content">
-          <div>
-            <div class="extra" v-bind:class="imageClass(hqImages[5],QUALITY.w300)"></div>
-          </div>
-        </div>
-      </div>
-      <div class="img-box">
-        <div class="content text" style="background-color: #FF9E99">N</div>
-      </div>
-      <div class="img-box">
-        <div class="content"></div>
-      </div>
-      <div class="img-box">
-        <div class="content text" style="background-color: #FF544C">S</div>
-      </div>
-      <div class="img-box plus">
-        <div class="content" v-bind:class="imageClass(hqImages[18],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box">
-        <div class="content">
-        </div>
-      </div>
-      <div class="img-box">
-        <div class="content">
-          <div>
-            <div class="extra" v-bind:class="imageClass(hqImages[33],QUALITY.w300)"></div>
-          </div>
-        </div>
-      </div>
-      <div class="img-box">
-        <div class="content" v-bind:class="imageClass(hqImages[14],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box">
-        <div class="content" v-bind:class="imageClass(hqImages[15],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box plus">
-        <div class="content text" style="background-color: #804F4D"></div>
-      </div>
-      <div class="img-box alt-small">
-        <div class="content" v-bind:class="imageClass(hqImages[12],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box alt-wide">
-        <div class="content text" style="background-color: #FF544C"></div>
-      </div>
-      <div class="img-box">
-        <div class="content">
-        </div>
-      </div>
-      <div class="img-box">
-        <div class="content text" style="background-color: #802B26">T</div>
-      </div>
-      <div class="img-box">
-        <div class="content" v-bind:class="imageClass(hqImages[16],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box plus">
-        <div class="content" v-bind:class="imageClass(hqImages[17],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box last">
-        <div class="content text" style="background-color: #FF544C"></div>
-      </div>
-      <div class="img-box last">
-        <div class="content" v-bind:class="imageClass(hqImages[13],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box last">
-        <div class="content" v-bind:class="imageClass(hqImages[18],QUALITY.w300)"></div>
-      </div>
-      <div class="img-box last">
-        <div class="content" v-bind:class="imageClass(hqImages[19],QUALITY.w300)"></div>
-      </div>
-    </div>
+    <section0></section0>
     <div class="section-2">
       <div class="item" v-for="(item, index) in rankedImages" v-bind:key="item.name"
            v-bind:style="{backgroundColor: item.color}">
@@ -146,8 +37,10 @@
   import { Vue } from 'vue-property-decorator';
   import { HQ_IMAGES, IMAGES, imageClass, imagePath, QUALITY, rankedImages } from '@/assets/content';
   import store from '@/store';
-
-  @Component
+  import Section0 from '@/components/Section0.vue';
+  @Component({
+    components: { Section0 }
+  })
   export default class Counter extends Vue {
     hqImages = HQ_IMAGES;
     imageClass = imageClass;
@@ -173,93 +66,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .section-1 {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-
-    .img-box {
-      position: relative;
-      width: 25%;
-      float: left;
-      user-select: none;
-
-      &.plus {
-        display: none;
-      }
-
-      @media all and (min-width: 1000px) {
-        width: 20%;
-
-        &.plus {
-          display: block;
-        }
-      }
-
-      @media all and (max-width: 949px) {
-        &.alt-wide {
-          display: none;
-        }
-      }
-
-      @media all and (min-width: 950px) {
-        &.last, &.alt-small {
-          display: none;
-        }
-      }
-
-      &:before {
-        content: "";
-        float: left;
-        padding-top: 50%;
-      }
-
-      &.h:before {
-        padding-top: 100%
-      }
-
-      .content {
-        float: left;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-size: cover;
-        background-position: center;
-
-        &:not(.text) {
-          filter: contrast(0.8) brightness(1.2);
-        }
-
-        &.text {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 6vw;
-          color: #fff;
-        }
-
-        & > div {
-          width: 100%;
-          height: 100%;
-          position: relative;
-        }
-
-        .extra {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 200%;
-          background-size: cover;
-          background-position: center;
-          z-index: 1;
-        }
-      }
-    }
-  }
-
   .section-2 {
     width: 100%;
     display: grid;

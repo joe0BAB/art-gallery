@@ -32,6 +32,7 @@
     onResize () {
       this.innerWidth = window.innerWidth;
       this.$store.commit('updateInnerWidth', this.innerWidth);
+      this.$store.commit('updateInnerWidth', window.innerHeight);
     }
   }
 </script>
