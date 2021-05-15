@@ -16,7 +16,7 @@
 import IconArrow from '@/assets/arrow.svg';
 import Component from 'vue-class-component';
 import { Vue } from 'vue-property-decorator';
-import { HQ_IMAGES, imagePath, imageClass, QUALITY } from '@/assets/content';
+import { HQ_IMAGES, imagePath, imageClass, QUALITY, INTRO_IMAGES } from '@/assets/content';
 import Velocity from 'velocity-animate';
 
 @Component({ components: { IconArrow } })
@@ -26,7 +26,7 @@ export default class Section0 extends Vue {
   imagePath = imagePath;
   QUALITY = QUALITY;
   interval = 0;
-  images = [8, 9, 42, 44, 5, 33, 20, 15];
+  images = INTRO_IMAGES;
   activeIdx = 0;
   url = '';
   scrollRunning = false;

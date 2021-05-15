@@ -175,3 +175,5 @@ export function imagePath (name: string, quality: QUALITY) {
     return imagesHQ[name];
   }
 }
+
+export const INTRO_IMAGES = [8, 9, 42, 44, 5, 33, 20, 15];
