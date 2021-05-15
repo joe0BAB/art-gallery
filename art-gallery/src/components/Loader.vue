@@ -16,7 +16,7 @@ import Component from 'vue-class-component';
 import { Vue, Watch } from 'vue-property-decorator';
 import { HQ_IMAGES, imagePath, INTRO_IMAGES, QUALITY } from '@/assets/content';
 
-function shuffle (a: any[]) {
+function shuffle (a: number[]) {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
@@ -26,10 +26,10 @@ function shuffle (a: any[]) {
 
 @Component
 export default class Loader extends Vue {
-  images: Image[] = [];
+  images: HTMLImageElement[] = [];
   counter = 0;
   introText = ['K', 'U', 'N', 'S', 'T'];
-  permutation = [];
+  permutation: number[] = [];
 
   $refs!: {
     letter: HTMLElement[];
@@ -42,7 +42,7 @@ export default class Loader extends Vue {
   @Watch('progress')
   onAllLoaded () {
     const idx = Math.ceil((this.introText.length - 1) * this.progress / 100);
-    this.$refs.letter[this.permutation[idx]].style.opacity = 1;
+    this.$refs.letter[this.permutation[idx]].style.opacity = '1';
 
     if (this.progress < 100) {
       return;
