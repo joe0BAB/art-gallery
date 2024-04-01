@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        html * {
+            box-sizing: border-box;
+        }
+
+        html, body, #app {
+            width: 100%;
+            height: 100%;
+            font-family: Archivo;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="tT9KTTeM5dzN4OCxSa8qsaiA5wbzAkzO3hn6nxGJzDE"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>Doris Grossmann</title>
+</head>
+<body>
+<div id="app">
+    <div class="wrapper">
+        <div id="h-menu" class="menu horizontal colored">
+            <div id="h-menu-open-action" class="open-action colored" onclick="router.open(aboutView)">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <a onclick="router.open(gallery)" style="cursor: pointer">
+                <div class="text-box">
+                    <h4>2020</h4>
+                    <div class="spacer"></div>
+                    <h1>Doris Großmann</h1>
+                    <div class="spacer"></div>
+                    <p>Kunstausstellung Gemälde Gallerie</p>
+                </div>
+            </a>
+            <div class="dash colored"></div>
+            <div class="menu-art colored">
+                <div id="h-line"></div>
+                <div id="heart"></div>
+                <div id="diamond"></div>
+                <div id="circle"></div>
+            </div>
+        </div>
+        <div class="top-menu-wrapper colored">
+            <div class="open-action" onclick="router.open(aboutView)">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h1>Doris Grossmann</h1>
+            <div id="top-menu-action-close" class="close hidden" onclick="router.back()">
+                <div></div>
+            </div>
+        </div>
+        <div class="content">
+            <div id="about" class="hidden">
+                <div class="main-box">
+                    <div class="deco-line"></div>
+                    <div class="presenter">
+                        <div class="show-box">
+                            <h1>Atelier</h1>
+                        </div>
+                        <div class="credits-box">
+                            <div class="dominant">
+                                <h2>Ausstellungen (Auswahl)</h2>
+                                <div class="history-grid">
+                                    <div>2018</div>
+                                    <p>Düsseldorf Kunstpunkte</p>
+                                    <div></div>
+                                    <p>Galerie Holzwerkstatt Wiehn, Kaiserslautern (E)</p>
+                                    <div>2017</div>
+                                    <p>Austellungsraum bei DDJ, Krefeld (E)</p>
+                                    <div></div>
+                                    <p>Galerie im Schloss Klippenstein, Radeberg</p>
+                                    <div>2016</div>
+                                    <p>Galerie in der Lanker Weinschänke, Lank</p>
+                                    <div></div>
+                                    <p>Galerie Blauer Ezel, Aachen</p>
+                                    <div>2015</div>
+                                    <p>Arbeitsplatz Kunst, Meerbusch</p>
+                                    <div></div>
+                                    <p>Foyer Rathaus, Neuss</p>
+                                    <div>2013</div>
+                                    <p>Galerie am Markt, Neubeuern</p>
+                                    <div></div>
+                                    <p>Galerie, Maria Weimann, Rosenheim (E)</p>
+                                </div>
+                                <p>(E): Einzelausstellung</p>
+                            </div>
+                            <div>
+                                <h2>
+                                    Kurzvita
+                                </h2>
+                                <p>
+                                    Doris Großmann
+                                    <br>
+                                    1957 geboren in Krefeld,
+                                    <br>
+                                    Architektin, Studium in Kaiserslautern und Aachen,
+                                    <br>
+                                    seit 2005 künstlerisch tätig
+                                </p>
+                            </div>
+                            <div>
+                                <h2>Kontakt</h2>
+                                <p>
+                                    Doris Großmann
+                                    <br>
+                                    grossmann_doris(at)t-online.de
+                                </p>
+                                <div class="spacer"></div>
+                                <h2>Website</h2>
+                                <p>
+                                    Johannes Großmann
+                                </p>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="close" onclick="router.back()">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div id="zoom" class="hidden">
+                <div class="main-box">
+                    <div class="presenter" id="zoom-presenter">
+                    </div>
+                    <div class="close" onclick="router.back()">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div id="gallery">
+                <div class="section-0" ref="container">
+                    <div id="backdrop">
+                        <p>
+                            <span id="loader-3">K</span>
+                            <span id="loader-1">U</span>
+                            <span id="loader-5">N</span>
+                            <span id="loader-4">S</span>
+                            <span id="loader-2">T</span>
+                        </p>
+                    </div>
+                    <div id="loader-6">
+                        <div class="scroll-hint">
+                            scroll
+                        </div>
+                        <div class="scroll-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-2">
+                    <div class="item" style="background-color: #804F4D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729176','#804F4D'))">
+                                <img class="xxs" src="assets/w300/_D729176.jpg"/>
+                                <img class="xs" src="assets/w500/_D729176.jpg"/>
+                                <img class="s" src="assets/w750/_D729176.jpg"/>
+                                <img class="m" src="assets/w300/_D729176.jpg"/>
+                                <img class="l" src="assets/w500/_D729176.jpg"/>
+                                <img class="xl" src="assets/w750/_D729176.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 1 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF9E99">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('DSC_0127','#FF9E99'))">
+                                <img class="xxs" src="assets/w300/DSC_0127.jpg"/>
+                                <img class="xs" src="assets/w500/DSC_0127.jpg"/>
+                                <img class="s" src="assets/w750/DSC_0127.jpg"/>
+                                <img class="m" src="assets/w300/DSC_0127.jpg"/>
+                                <img class="l" src="assets/w500/DSC_0127.jpg"/>
+                                <img class="xl" src="assets/w750/DSC_0127.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 2 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF544C">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729162','#FF544C'))">
+                                <img class="xxs" src="assets/w300/_D729162.jpg"/>
+                                <img class="xs" src="assets/w500/_D729162.jpg"/>
+                                <img class="s" src="assets/w750/_D729162.jpg"/>
+                                <img class="m" src="assets/w300/_D729162.jpg"/>
+                                <img class="l" src="assets/w500/_D729162.jpg"/>
+                                <img class="xl" src="assets/w750/_D729162.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 3 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #802B26">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729178','#802B26'))">
+                                <img class="xxs" src="assets/w300/_D729178.jpg"/>
+                                <img class="xs" src="assets/w500/_D729178.jpg"/>
+                                <img class="s" src="assets/w750/_D729178.jpg"/>
+                                <img class="m" src="assets/w300/_D729178.jpg"/>
+                                <img class="l" src="assets/w500/_D729178.jpg"/>
+                                <img class="xl" src="assets/w750/_D729178.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 4 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #CC443D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('DSC_0125','#CC443D'))">
+                                <img class="xxs" src="assets/w300/DSC_0125.jpg"/>
+                                <img class="xs" src="assets/w500/DSC_0125.jpg"/>
+                                <img class="s" src="assets/w750/DSC_0125.jpg"/>
+                                <img class="m" src="assets/w300/DSC_0125.jpg"/>
+                                <img class="l" src="assets/w500/DSC_0125.jpg"/>
+                                <img class="xl" src="assets/w750/DSC_0125.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 5 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #804F4D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('DSC_0133','#804F4D'))">
+                                <img class="xxs" src="assets/w300/DSC_0133.jpg"/>
+                                <img class="xs" src="assets/w500/DSC_0133.jpg"/>
+                                <img class="s" src="assets/w750/DSC_0133.jpg"/>
+                                <img class="m" src="assets/w300/DSC_0133.jpg"/>
+                                <img class="l" src="assets/w500/DSC_0133.jpg"/>
+                                <img class="xl" src="assets/w750/DSC_0133.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 6 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF9E99">
+                        <div class="inner-wrapper v">
+                            <a onclick="router.open(zoom('DSC_0119','#FF9E99'))">
+                                <img class="xxs" src="assets/w300/DSC_0119.jpg"/>
+                                <img class="xs" src="assets/w500/DSC_0119.jpg"/>
+                                <img class="s" src="assets/w750/DSC_0119.jpg"/>
+                                <img class="m" src="assets/w300/DSC_0119.jpg"/>
+                                <img class="l" src="assets/w500/DSC_0119.jpg"/>
+                                <img class="xl" src="assets/w750/DSC_0119.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 7 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #802B26">
+                        <div class="inner-wrapper v">
+                            <a onclick="router.open(zoom('DSC_0120','#802B26'))">
+                                <img class="xxs" src="assets/w300/DSC_0120.jpg"/>
+                                <img class="xs" src="assets/w500/DSC_0120.jpg"/>
+                                <img class="s" src="assets/w750/DSC_0120.jpg"/>
+                                <img class="m" src="assets/w300/DSC_0120.jpg"/>
+                                <img class="l" src="assets/w500/DSC_0120.jpg"/>
+                                <img class="xl" src="assets/w750/DSC_0120.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 8 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF544C">
+                        <div class="inner-wrapper v">
+                            <a onclick="router.open(zoom('DSC_0122','#FF544C'))">
+                                <img class="xxs" src="assets/w300/DSC_0122.jpg"/>
+                                <img class="xs" src="assets/w500/DSC_0122.jpg"/>
+                                <img class="s" src="assets/w750/DSC_0122.jpg"/>
+                                <img class="m" src="assets/w300/DSC_0122.jpg"/>
+                                <img class="l" src="assets/w500/DSC_0122.jpg"/>
+                                <img class="xl" src="assets/w750/DSC_0122.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 9 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #CC443D">
+                        <div class="inner-wrapper v">
+                            <a onclick="router.open(zoom('DSC_0124','#CC443D'))">
+                                <img class="xxs" src="assets/w300/DSC_0124.jpg"/>
+                                <img class="xs" src="assets/w500/DSC_0124.jpg"/>
+                                <img class="s" src="assets/w750/DSC_0124.jpg"/>
+                                <img class="m" src="assets/w300/DSC_0124.jpg"/>
+                                <img class="l" src="assets/w500/DSC_0124.jpg"/>
+                                <img class="xl" src="assets/w750/DSC_0124.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 10 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #802B26">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729158','#802B26'))">
+                                <img class="xxs" src="assets/w300/_D729158.jpg"/>
+                                <img class="xs" src="assets/w500/_D729158.jpg"/>
+                                <img class="s" src="assets/w750/_D729158.jpg"/>
+                                <img class="m" src="assets/w300/_D729158.jpg"/>
+                                <img class="l" src="assets/w500/_D729158.jpg"/>
+                                <img class="xl" src="assets/w750/_D729158.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 11 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #804F4D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729161','#804F4D'))">
+                                <img class="xxs" src="assets/w300/_D729161.jpg"/>
+                                <img class="xs" src="assets/w500/_D729161.jpg"/>
+                                <img class="s" src="assets/w750/_D729161.jpg"/>
+                                <img class="m" src="assets/w300/_D729161.jpg"/>
+                                <img class="l" src="assets/w500/_D729161.jpg"/>
+                                <img class="xl" src="assets/w750/_D729161.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 12 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF9E99">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729175','#FF9E99'))">
+                                <img class="xxs" src="assets/w300/_D729175.jpg"/>
+                                <img class="xs" src="assets/w500/_D729175.jpg"/>
+                                <img class="s" src="assets/w750/_D729175.jpg"/>
+                                <img class="m" src="assets/w300/_D729175.jpg"/>
+                                <img class="l" src="assets/w500/_D729175.jpg"/>
+                                <img class="xl" src="assets/w750/_D729175.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 13 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF544C">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729167','#FF544C'))">
+                                <img class="xxs" src="assets/w300/_D729167.jpg"/>
+                                <img class="xs" src="assets/w500/_D729167.jpg"/>
+                                <img class="s" src="assets/w750/_D729167.jpg"/>
+                                <img class="m" src="assets/w300/_D729167.jpg"/>
+                                <img class="l" src="assets/w500/_D729167.jpg"/>
+                                <img class="xl" src="assets/w750/_D729167.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 14 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #CC443D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729169','#CC443D'))">
+                                <img class="xxs" src="assets/w300/_D729169.jpg"/>
+                                <img class="xs" src="assets/w500/_D729169.jpg"/>
+                                <img class="s" src="assets/w750/_D729169.jpg"/>
+                                <img class="m" src="assets/w300/_D729169.jpg"/>
+                                <img class="l" src="assets/w500/_D729169.jpg"/>
+                                <img class="xl" src="assets/w750/_D729169.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 15 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #804F4D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729170','#804F4D'))">
+                                <img class="xxs" src="assets/w300/_D729170.jpg"/>
+                                <img class="xs" src="assets/w500/_D729170.jpg"/>
+                                <img class="s" src="assets/w750/_D729170.jpg"/>
+                                <img class="m" src="assets/w300/_D729170.jpg"/>
+                                <img class="l" src="assets/w500/_D729170.jpg"/>
+                                <img class="xl" src="assets/w750/_D729170.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 16 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #802B26">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729171','#802B26'))">
+                                <img class="xxs" src="assets/w300/_D729171.jpg"/>
+                                <img class="xs" src="assets/w500/_D729171.jpg"/>
+                                <img class="s" src="assets/w750/_D729171.jpg"/>
+                                <img class="m" src="assets/w300/_D729171.jpg"/>
+                                <img class="l" src="assets/w500/_D729171.jpg"/>
+                                <img class="xl" src="assets/w750/_D729171.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 17 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF544C">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729172','#FF544C'))">
+                                <img class="xxs" src="assets/w300/_D729172.jpg"/>
+                                <img class="xs" src="assets/w500/_D729172.jpg"/>
+                                <img class="s" src="assets/w750/_D729172.jpg"/>
+                                <img class="m" src="assets/w300/_D729172.jpg"/>
+                                <img class="l" src="assets/w500/_D729172.jpg"/>
+                                <img class="xl" src="assets/w750/_D729172.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 18 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #804F4D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729177','#804F4D'))">
+                                <img class="xxs" src="assets/w300/_D729177.jpg"/>
+                                <img class="xs" src="assets/w500/_D729177.jpg"/>
+                                <img class="s" src="assets/w750/_D729177.jpg"/>
+                                <img class="m" src="assets/w300/_D729177.jpg"/>
+                                <img class="l" src="assets/w500/_D729177.jpg"/>
+                                <img class="xl" src="assets/w750/_D729177.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 19 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF9E99">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_D729174','#FF9E99'))">
+                                <img class="xxs" src="assets/w300/_D729174.jpg"/>
+                                <img class="xs" src="assets/w500/_D729174.jpg"/>
+                                <img class="s" src="assets/w750/_D729174.jpg"/>
+                                <img class="m" src="assets/w300/_D729174.jpg"/>
+                                <img class="l" src="assets/w500/_D729174.jpg"/>
+                                <img class="xl" src="assets/w750/_D729174.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 20 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #CC443D">
+                        <div class="inner-wrapper v">
+                            <a onclick="router.open(zoom('_D729179','#CC443D'))">
+                                <img class="xxs" src="assets/w300/_D729179.jpg"/>
+                                <img class="xs" src="assets/w500/_D729179.jpg"/>
+                                <img class="s" src="assets/w750/_D729179.jpg"/>
+                                <img class="m" src="assets/w300/_D729179.jpg"/>
+                                <img class="l" src="assets/w500/_D729179.jpg"/>
+                                <img class="xl" src="assets/w750/_D729179.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 21 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #804F4D">
+                        <div class="inner-wrapper v">
+                            <a onclick="router.open(zoom('_D729182','#804F4D'))">
+                                <img class="xxs" src="assets/w300/_D729182.jpg"/>
+                                <img class="xs" src="assets/w500/_D729182.jpg"/>
+                                <img class="s" src="assets/w750/_D729182.jpg"/>
+                                <img class="m" src="assets/w300/_D729182.jpg"/>
+                                <img class="l" src="assets/w500/_D729182.jpg"/>
+                                <img class="xl" src="assets/w750/_D729182.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 22 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF9E99">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_DSC1574','#FF9E99'))">
+                                <img class="xxs" src="assets/w300/_DSC1574.jpg"/>
+                                <img class="xs" src="assets/w500/_DSC1574.jpg"/>
+                                <img class="s" src="assets/w750/_DSC1574.jpg"/>
+                                <img class="m" src="assets/w300/_DSC1574.jpg"/>
+                                <img class="l" src="assets/w500/_DSC1574.jpg"/>
+                                <img class="xl" src="assets/w750/_DSC1574.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 23 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #FF544C">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_DSC1576','#FF544C'))">
+                                <img class="xxs" src="assets/w300/_DSC1576.jpg"/>
+                                <img class="xs" src="assets/w500/_DSC1576.jpg"/>
+                                <img class="s" src="assets/w750/_DSC1576.jpg"/>
+                                <img class="m" src="assets/w300/_DSC1576.jpg"/>
+                                <img class="l" src="assets/w500/_DSC1576.jpg"/>
+                                <img class="xl" src="assets/w750/_DSC1576.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 24 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #802B26">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_DSC1578','#802B26'))">
+                                <img class="xxs" src="assets/w300/_DSC1578.jpg"/>
+                                <img class="xs" src="assets/w500/_DSC1578.jpg"/>
+                                <img class="s" src="assets/w750/_DSC1578.jpg"/>
+                                <img class="m" src="assets/w300/_DSC1578.jpg"/>
+                                <img class="l" src="assets/w500/_DSC1578.jpg"/>
+                                <img class="xl" src="assets/w750/_DSC1578.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 25 / 26
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="background-color: #CC443D">
+                        <div class="inner-wrapper h">
+                            <a onclick="router.open(zoom('_DSC1580','#CC443D'))">
+                                <img class="xxs" src="assets/w300/_DSC1580.jpg"/>
+                                <img class="xs" src="assets/w500/_DSC1580.jpg"/>
+                                <img class="s" src="assets/w750/_DSC1580.jpg"/>
+                                <img class="m" src="assets/w300/_DSC1580.jpg"/>
+                                <img class="l" src="assets/w500/_DSC1580.jpg"/>
+                                <img class="xl" src="assets/w750/_DSC1580.jpg"/>
+                            </a>
+                            <div class="info-extra">
+                                Objekt 26 / 26
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-3">
+                    <p class="primary">Kunst von Doris Großmann.</p>
+                    <p>Alle Rechte vorbehalten.</p>
+                    <a style="cursor: pointer" onclick="router.open(aboutView)">Impressum</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <loader v-if="showLoader" v-on:load="showLoader=false"></loader>
+</div>
+<script>
+    let INTRO_IMAGES = [
+        '/assets/w750/_DSC1586.jpg',
+        '/assets/w750/_DSC1588.jpg',
+        '/assets/w750/_DSC1592.jpg',
+        '/assets/w750/DSC_0123.jpg',
+        '/assets/w750/_D729181.jpg',
+        '/assets/w750/_DSC1584.jpg',
+        '/assets/w750/DSC_0133.jpg',
+    ];
+
+    let introAnimation = {
+        $backdrop: document.getElementById('backdrop'),
+        backdropIndex: 0,
+        run: function () {
+            setInterval(() => {
+                this.backdropIndex++;
+                this.backdropIndex = this.backdropIndex % INTRO_IMAGES.length;
+                this.$backdrop.style.backgroundImage = `url(${INTRO_IMAGES[this.backdropIndex]})`
+            }, 300)
+        }
+    }
+
+    let loader = {
+        run: function (cb) {
+            let images = []
+            let counter = 0;
+            for (const url of INTRO_IMAGES) {
+                const image = new Image();
+
+                const done = () => {
+                    counter++;
+                    cb(counter)
+                };
+
+                image.onload = done;
+                // image.onerror = done;
+                image.src = url;
+                if (image.complete || (typeof image.naturalWidth !== 'undefined' && image.naturalWidth !== 0)) {
+                    // done();
+                }
+                images.push(image);
+            }
+        }
+    }
+
+    loader.run((counter) => {
+        if (counter === INTRO_IMAGES.length) {
+            introAnimation.run()
+        }
+        let item = document.getElementById(`loader-${counter - 1}`)
+        if (item) {
+            item.style.opacity = 1
+        }
+    })
+
+
+    let menu = {
+        setColor: function (color) {
+            let colored = document.getElementsByClassName('colored')
+            for (let item of colored) {
+                item.style.backgroundColor = color
+            }
+            if (color !== '') {
+                document.getElementById('h-menu').style.borderColor = '#000'
+                document.getElementById('h-menu-open-action').style.borderColor = '#000'
+                document.getElementById('h-line').style.backgroundColor = '#000'
+            } else {
+                document.getElementById('h-menu').style.borderColor = ''
+                document.getElementById('h-menu-open-action').style.borderColor = ''
+                document.getElementById('h-line').style.backgroundColor = ''
+            }
+        },
+        resetColor: function () {
+            this.setColor('')
+        }
+    }
+
+    function zoom(id, color) {
+        let imageList = `
+        <img class="xs" src="assets/w300/${id}.jpg"/>
+        <img class="s" src="assets/w500/${id}.jpg"/>
+        <img class="m" src="assets/w750/${id}.jpg"/>
+        <img class="l" src="assets/w1000/${id}.jpg"/>
+        <img class="xl" src="assets/hq/${id}.jpg"/>
+        `
+        return {
+            $el: document.getElementById('zoom'),
+            show: function () {
+                menu.setColor(color)
+                this.$el.style.backgroundColor = color
+                document.getElementById('zoom-presenter').innerHTML = imageList
+                this.$el.classList.remove('hidden')
+            },
+            hide: function () {
+                menu.resetColor()
+                this.$el.classList.add('hidden')
+            }
+        }
+    }
+
+    let aboutView = {
+        $el: document.getElementById("about"),
+        show: function () {
+            menu.setColor('#FF544C')
+            this.$el.classList.remove('hidden')
+        },
+        hide: function () {
+            menu.resetColor()
+            this.$el.classList.add('hidden')
+        }
+    }
+
+    let gallery = {
+        $el: document.getElementById("gallery"),
+        show: function () {
+            this.$el.classList.remove('hidden')
+        },
+        hide: function () {
+            this.$el.classList.add('hidden')
+        }
+    }
+
+    let router = {
+        history: [],
+        active: gallery,
+        open: function (view) {
+            if (this.active === view) {
+                return
+            }
+            this.active.hide()
+            this.history.push(this.active)
+            this.active = view
+            this.active.show()
+            this._updateLayout()
+        },
+        back: function () {
+            if (this.history.length === 0) {
+                return
+            }
+            this.active.hide();
+            this.active = this.history.pop()
+            this.active.show();
+            this._updateLayout()
+        },
+        _updateLayout: function () {
+            if (this.active === gallery) {
+                document.getElementById('top-menu-action-close').classList.add('hidden')
+            } else {
+                document.getElementById('top-menu-action-close').classList.remove('hidden')
+            }
+        }
+    }
+</script>
+</body>
+<style>
+    .hidden {
+        display: none;
+    }
+
+    #loader-1, #loader-2, #loader-3, #loader-4, #loader-5, #loader-6 {
+        opacity: 0;
+    }
+
+    .close {
+        position: absolute;
+        top: -2.3vw; /* padding-top/2  */
+        right: -2.75vw; /* menu-width /2 */
+        cursor: pointer;
+        padding: 0.5vh;
+        transform: translateX(50%) translateY(-50%);
+
+        div {
+            width: calc(2.8vw + 4px); /* c-w */
+            height: calc(2.8vw + 4px); /* c-w */
+            transition: all 450ms;
+
+            &:hover {
+                transform: rotate(180deg);
+            }
+
+            &:before, &:after {
+                position: absolute;
+                left: 50%;
+                content: ' ';
+                width: calc(0.2vw + 1px); /* c-s */
+                height: calc(2.8vw + 4px); /* c-w */
+                background-color: #000;
+            }
+
+            &:before {
+                transform: translateX(-50%) rotate(-45deg);
+            }
+
+            &:after {
+                transform: translateX(-50%) rotate(45deg);
+            }
+        }
+    }
+
+    /* menus */
+    @media all and (max-width: 800px) {
+        .menu.horizontal {
+            display: none;
+        }
+    }
+
+    @media all and (min-width: 801px) {
+        .top-menu-wrapper {
+            display: none;
+        }
+    }
+
+    .top-menu-wrapper {
+        width: 100%;
+        height: calc(6vh + 10px); /* menu-height */
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        z-index: 1;
+        border-bottom: 1px solid black;
+
+        /*@extend %-from-enum;*/
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: calc(2vh + 6px);
+            line-height: calc(6vh + 10px); /* menu-height */
+        }
+
+        .open-action {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-row-gap: 3px;
+            grid-auto-rows: 2px;
+            padding: 0 4.6vw;
+            width: calc(12vw + 7px);
+            cursor: pointer;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            div {
+                background-color: black;
+            }
+        }
+
+        .close {
+            /*@extend %-close;*/
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 4vw;
+        }
+    }
+
+    .menu {
+        border-right: 1px solid #a3a3a3; /* border-color */
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 5.5vw; /* menu-width */
+        z-index: 100;
+
+        &.default {
+            background-color: #fff;
+        }
+
+        @extend %-from-enum;
+
+        .text-box {
+            position: absolute;
+            top: 78vh;
+            left: 0;
+            transform: rotate(-90deg) translateX(0%);
+            transform-origin: 0 0;
+            white-space: nowrap;
+            height: 5.5vw; /* menu-width */
+            display: flex;
+            align-items: center;
+            color: #000;
+
+            .spacer {
+                width: 4vh;
+                height: 1px;
+            }
+
+            h1 {
+                font-size: calc(1.8vh + 6px);
+                font-weight: 600;
+            }
+
+            h4 {
+                font-size: 1.3vh; /* sub-font */
+                font-weight: 300;
+            }
+
+            p {
+                font-size: 1.3vh; /* sub-font */
+            }
+        }
+
+        .menu-art {
+            box-sizing: content-box;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.6vh 1vw;
+            width: calc(100% - 2 * 1vw);
+            display: flex;
+            flex-direction: column;
+            height: 17vh;
+            align-items: center;
+            justify-content: space-around;
+
+            #h-line {
+                height: 1px;
+                width: 70%;
+                margin-bottom: 2vh;
+                background-color: #a3a3a3; /* border-color */
+            }
+
+            #circle {
+                width: 0.9vw; /* 0.9h-w */
+                height: 0.9vw; /* 0.9h-w */
+                background-color: #000; /* h-c */
+                border-radius: 50%;
+            }
+
+            #heart {
+                position: relative;
+                width: 1vw; /* h-w */
+                height: 0.9vw; /* 0.9h-w */
+            }
+
+            #heart:before,
+            #heart:after {
+                position: absolute;
+                content: "";
+                left: 0.5vw; /* 0.5h-w */
+                top: 0;
+                width: 0.5vw; /* 0.5h-w */
+                height: 0.8vw; /* 0.8h-w */
+                background: black;
+                border-radius: 0.5vw 0.5vw 0 0; /* 0.5h-w */
+                transform: rotate(-45deg);
+                transform-origin: 0 100%;
+            }
+
+            #heart:after {
+                left: 0;
+                transform: rotate(45deg);
+                transform-origin: 100% 100%;
+            }
+
+            #diamond {
+                width: 0;
+                height: 0;
+                border: 0.5vw solid transparent; /* 0.5h-w */
+                border-bottom-color: #000; /* h-c */
+                position: relative;
+                transform: translateY(-50%);
+            }
+
+            #diamond:after {
+                content: '';
+                position: absolute;
+                left: -0.5vw; /*0.5 h-w */
+                width: 0;
+                height: 0;
+                border: 0.5vw solid transparent; /* 0.5h-w */
+                border-top-color: #000; /* h-c */
+                transform: translateY(50%);
+            }
+        }
+
+        .open-action {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-row-gap: 0.3vw;
+            grid-auto-rows: 0.2vw;
+            padding: 1.6vw 1.6vw;
+            border-bottom: 1px solid #a3a3a3; /* border-color */
+            width: 100%;
+            cursor: pointer;
+
+            &.color1, &.color2, &.color3, &.color4, &.color5 {
+                border-bottom: 1px solid #000;
+            }
+
+            div {
+                background-color: black;
+            }
+        }
+    }
+
+    #about {
+        width: 100%;
+        padding: calc(4.6vw - 1px) 5.5vw; /* menu-width */
+
+        @media all and (max-width: 799px) {
+            padding-top: calc(6vh + 10px); /* menu-height */
+            padding-left: 5.5vw; /* menu-width */
+        }
+        background-color: #FF544C;
+
+        .main-box {
+            position: relative;
+
+            .deco-line {
+                width: 100%;
+                height: calc(4.6vw - 1px);
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: #FF544C;
+
+                @media all and (max-width: 799px) {
+                    display: none;
+                }
+            }
+        }
+
+        .presenter {
+            display: grid;
+            grid-template-columns: 1fr;
+
+            .show-box {
+                background-image: url(assets/hq/studio.jpeg);
+                background-size: cover;
+                background-position: center;
+                color: #FF544C;
+                height: 70vh;
+                min-height: 300px;
+                font-size: 14vw;
+                line-height: 9vw;
+                text-transform: uppercase;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+
+                @media screen and (max-width: 1000px) {
+                    background-image: url(assets/w1000/studio.jpeg);
+                }
+
+                @media screen and (max-width: 750px) {
+                    background-image: url(assets/w750/studio.jpeg);
+                }
+
+                @media screen and (max-width: 500px) {
+                    background-image: url(assets/w500/studio.jpeg);
+                }
+
+                @media screen and (max-width: 300px) {
+                    background-image: url(assets/w300/studio.jpeg);
+                }
+            }
+
+            .credits-box {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-column-gap: 3vw;
+                padding: 3vh 0 0 0;
+
+                @media all and (max-width: 799px) {
+                    grid-template-columns: 1fr 1fr;
+
+                    .dominant {
+                        padding-top: 20px;
+                        grid-column: 1 / span 2;
+                        grid-row: 2;
+                    }
+                }
+
+                h2 {
+                    font-size: calc(16px + 0.5vh);
+                    line-height: calc(24px + 0.6vh);
+                    text-transform: uppercase;
+                }
+
+                p {
+                    font-size: calc(12px + 0.3vh);
+                    line-height: calc(18px + 0.5vh);
+                }
+
+                .history-grid {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    grid-column-gap: calc(2vw + 4px);
+
+                    div {
+                        font-size: calc(12px + 0.3vh);
+                        line-height: calc(18px + 0.5vh);
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .spacer {
+                    width: 100%;
+                    height: calc(3vh + 20px);
+                }
+            }
+        }
+
+        .close {
+            position: fixed;
+            top: 2.3vw; /* 0.5padding-top*/
+            right: 2.75vw; /* menu-width / 2 */
+
+            @media all and (max-width: 799px) {
+                display: none;
+            }
+        }
+    }
+
+    #zoom {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: calc(4.6vw - 1px) 5.5vw calc(4.6vw - 1px) 11vw; /* 2*menu-width */
+
+        @media all and (max-width: 799px) {
+            padding-top: calc(12vh + 20px); /* menu-height-double */
+            padding-left: 5.5vw; /* menu-width */
+        }
+
+        background-color: #FF544C;
+
+        .main-box {
+            position: relative;
+            height: 100%;
+        }
+
+        .presenter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
+
+            @media all and (min-width: 301px) {
+                .xs {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 300px) or (min-width: 501px) {
+                .s {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 500px) or (min-width: 751px) {
+                .m {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 750px) or (min-width: 1001px) {
+                .l {
+                    display: none;
+                }
+            }
+
+            @media all and (max-width: 1000px) {
+                .xl {
+                    display: none;
+                }
+            }
+        }
+
+        .close {
+            @media all and (max-width: 799px) {
+                display: none;
+            }
+        }
+    }
+
+    @keyframes move-arrow {
+        0% {
+            transform: translateY(-50%);
+        }
+        50% {
+            transform: translateY(50%);
+        }
+        100% {
+            transform: translateY(-50%);
+        }
+    }
+
+    .section-0 {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        user-select: none;
+
+        #backdrop {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            /*background-image: url("assets/w750/DSC_0126.jpg");*/
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .scroll-arrow {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            svg {
+                width: 100%;
+                height: 100%;
+                animation-name: move-arrow;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+            }
+        }
+
+        p {
+            color: black;
+            mix-blend-mode: lighten;
+            background-color: white;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25vw;
+            font-weight: 600;
+        }
+    }
+
+    .section-2 {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        @media all and (max-width: 700px) {
+            grid-template-columns: 100%;
+        }
+
+        .item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+
+            @media all and (max-width: 1000px) and (min-width: 701px) {
+                padding: 20px;
+            }
+
+            @media all and (max-width: 500px) {
+                padding: 20px;
+            }
+
+            .inner-wrapper {
+                position: relative;
+
+                .info-extra {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    color: #fff;
+                    font-size: calc(0.5vw + 8px);
+                    line-height: 24px;
+                    transform: translateY(100%);
+                }
+            }
+
+            .inner-wrapper.v {
+                height: 80vh;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .inner-wrapper.h {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .inner-wrapper {
+                @media all and (min-width: 301px) {
+                    .xxs {
+                        display: none;
+                    }
+                }
+
+                @media (max-width: 300px) or (min-width: 501px) {
+                    .xs {
+                        display: none;
+                    }
+                }
+
+                @media (max-width: 500px) or (min-width: 701px) {
+                    .s {
+                        display: none;
+                    }
+                }
+
+                @media (max-width: 700px) or (min-width: 1001px) {
+                    .m {
+                        display: none;
+                    }
+                }
+
+                @media (max-width: 1000px) or (min-width: 1501px) {
+                    .l {
+                        display: none;
+                    }
+                }
+
+                @media all and (max-width: 1500px) {
+                    .xl {
+                        display: none;
+                    }
+                }
+
+                filter: contrast(0.8) brightness(1.2);
+                cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQwIDc5LjE2MDQ1MSwgMjAxNy8wNS8wNi0wMTowODoyMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjEyQ0ZBRDlBOTFFNTExRTlCMDRBRkNBNzZCRjI1RDkzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjEyQ0ZBRDlCOTFFNTExRTlCMDRBRkNBNzZCRjI1RDkzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M0M3QzFDODk3RUMzMTFFOUIwNEFGQ0E3NkJGMjVEOTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6M0M3QzFDOEE3RUMzMTFFOUIwNEFGQ0E3NkJGMjVEOTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz68qU3aAAAANElEQVR42mL8//8/AyHAyMgIVgRUy0hILRMDlcGogaMGkgFACfX/4HbhaNYbNXA4GggQYAClnA8fBBm+xAAAAABJRU5ErkJggg==), auto;
+            }
+        }
+    }
+
+    .section-3 {
+        background-color: rgb(78, 110, 129);
+        padding: 40px;
+        text-align: right;
+        color: #ffffff;
+        font-size: calc(1.8vh + 4px);
+        line-height: calc(2.4vh + 8px);
+
+        p.primary {
+            padding-bottom: calc(3vh + 6px);
+        }
+
+        @media all and (max-width: 1000px) and (min-width: 701px) {
+            padding: 20px;
+        }
+
+        @media all and (max-width: 500px) {
+            padding: 20px;
+        }
+
+        a {
+            color: #ffffff;
+        }
+    }
+</style>
+<style>
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        padding-left: 5.5vw;
+
+        @media all and (max-width: 800px) {
+            padding-top: calc(6vh + 10px);
+            padding-left: 0;
+        }
+
+        .content {
+            width: 100%;
+        }
+    }
+</style>
+</html>
