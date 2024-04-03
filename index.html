@@ -615,14 +615,20 @@
     </div>
 </div>
 <script>
+    let quality = 'w750'
+    if (window.innerWidth < 350) {
+        quality = 'w300'
+    } else if (window.innerWidth < 550) {
+        quality = 'w500'
+    }
     let INTRO_IMAGES = [
-        'assets/w750/DSC1586.jpg',
-        'assets/w750/DSC1588.jpg',
-        'assets/w750/DSC1592.jpg',
-        'assets/w750/DSC_0123.jpg',
-        'assets/w750/D729181.jpg',
-        'assets/w750/DSC1584.jpg',
-        'assets/w750/DSC_0133.jpg',
+        `assets/${quality}/DSC1586.jpg`,
+        `assets/${quality}/DSC1588.jpg`,
+        `assets/${quality}/DSC1592.jpg`,
+        `assets/${quality}/DSC_0123.jpg`,
+        `assets/${quality}/D729181.jpg`,
+        `assets/${quality}/DSC1584.jpg`,
+        `assets/${quality}/DSC_0133.jpg`,
     ];
 
     let introAnimation = {
@@ -887,8 +893,6 @@
         &.default {
             background-color: #fff;
         }
-
-        @extend %-from-enum;
 
         .text-box {
             position: absolute;
@@ -1308,10 +1312,9 @@
             }
 
             .inner-wrapper.v {
-                height: 80vh;
-
                 img {
-                    height: 100%;
+                    max-width: 100%;
+                    max-height: 100%;
                 }
             }
 
