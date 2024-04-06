@@ -907,8 +907,11 @@
             if (this.active === view) {
                 return
             }
+            this.history.push({
+                view: this.active,
+                position: window.scrollY
+            })
             this.active.hide()
-            this.history.push(this.active)
             this.active = view
             this.active.show()
             this._updateLayout()
@@ -918,8 +921,10 @@
                 return
             }
             this.active.hide();
-            this.active = this.history.pop()
+            let previous = this.history.pop()
+            this.active = previous.view
             this.active.show();
+            window.scrollTo(0, previous.position)
             this._updateLayout()
         },
         _updateLayout: function () {
